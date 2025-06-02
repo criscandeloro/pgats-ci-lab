@@ -40,6 +40,8 @@ jobs:
         run: yarn run e2e
 
       - name: Publish Playwright test report
+      - run: PLAYWRIGHT_JSON_OUTPUT_NAME=results.json npx playwright test --reporter=json
+
         uses: daun/playwright-report-summary@v3
         if: always()
         with:
