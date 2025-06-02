@@ -43,4 +43,4 @@ jobs:
         uses: daun/playwright-report-summary@v3
         if: always()
         with:
-          report-file: test-results/results.html
+          report-file: test-results/results.json
