@@ -37,12 +37,10 @@ jobs:
       
       # executar os testes e2e
       - name: Executando Testes E2E
-        run:  |
-          mkdir -p test-results
-          yarn run e2e
+        run: yarn run e2e 
 
       - name: Publish Playwright test report
         uses: daun/playwright-report-summary@v3
         if: always()
         with:
-          reporter: test-results/results.json
+          reporter: test-results/results.html
