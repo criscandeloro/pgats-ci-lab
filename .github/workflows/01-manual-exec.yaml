@@ -40,9 +40,7 @@ jobs:
         run: yarn run e2e --reporter=junit:test-results/results.xml
 
       - name: Publish Playwright test report
-        uses: dorny/test-reporter@v1
+        uses: daun/playwright-report-summary@v3
         if: always()
         with:
-          name: Playwright Test Report
-          path: test-results/results.json
-          reporter: playwright
+          reporter: results.json
