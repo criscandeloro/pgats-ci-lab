@@ -37,7 +37,7 @@ jobs:
       
       # executar os testes e2e
       - name: Executando Testes E2E
-        run: yarn run e2e --reporter=junit:test-results/results.xml
+        run: yarn run e2e
 
       - name: Publish Playwright test report
         uses: daun/playwright-report-summary@v3
