@@ -39,7 +39,7 @@ jobs:
       - name: Executando Testes E2E
         run: |
           mkdir -p test-results
-          PLAYWRIGHT_JSON_OUTPUT_NAME=results.json
+          PLAYWRIGHT_JSON_OUTPUT_NAME=results.json npx playwright test --reporter=json
           yarn run e2e
 
       - name: Publish Playwright test report
