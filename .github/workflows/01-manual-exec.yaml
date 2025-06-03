@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Relatorio Testes
-          path: test-results/results.html
+          path: playwright-report/
