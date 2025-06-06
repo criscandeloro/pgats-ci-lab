@@ -6,7 +6,7 @@ name: 'Execução por Deploy'
 # Gatilho: quando um workflow chamado 'Execução Manual' for concluído
 on:
   workflow_run:
-    workflows: ['Execução Manual']
+    workflows: ["Execução Manual"]
     types:
       - completed
 
