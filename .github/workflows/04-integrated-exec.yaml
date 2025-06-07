@@ -22,8 +22,8 @@ jobs:
         run: yarn
 
       - name: Rodar Prettier com correção automática
-        run: yarn prettier --write .        
-    
+        run: yarn prettier --write .
+
       - name: Code linting
         run: yarn lint
   unidade:

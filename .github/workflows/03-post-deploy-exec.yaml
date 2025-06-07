@@ -6,11 +6,11 @@ name: 'Execução por Deploy'
 # Gatilho: quando um workflow chamado 'Execução Manual' for concluído
 on:
   workflow_run:
-    workflows: ["Execução Manual"]
+    workflows: ['Execução Manual']
     types:
       - completed
 
-# Trabalhos / tarefas dentro do pipeline = jobs 
+# Trabalhos / tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
     # Máquina que vai rodar o job
@@ -35,15 +35,15 @@ jobs:
       # Instalação do Yarn
       - name: Instalando Yarn
         run: npm install -g yarn
-      
+
       # Instalação das dependências
       - name: Instalando dependências
         run: yarn
-      
+
       # Instalação do Playwright
       - name: Instalando Playwright
         run: yarn playwright install
-      
+
       # Executar os testes E2E
       - name: Executando Testes E2E
         run: yarn run e2e
