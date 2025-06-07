@@ -1,0 +1,42 @@
+# azure-pipelines.yml
+name: Execucao-Manual
+
+trigger: none  # Desativa CI automática (sem gatilhos de push)
+
+pr: none       # Desativa CI em pull requests
+
+# Habilita execução manual via botão "Run pipeline" no Azure DevOps
+# (isso é automático se não houver triggers)
+
+jobs:
+- job: e2e_tests
+  displayName: 'Executar Testes E2E Manualmente'
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - task: Checkout@1
+    displayName: 'Clonar Repositório'
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '22.x'
+    displayName: 'Instalar Node.js'
+
+  - script: npm install -g yarn
+    displayName: 'Instalar Yarn'
+
+  - script: yarn
+    displayName: 'Instalar Dependências'
+
+  - script: yarn playwright install
+    displayName: 'Instalar Playwright'
+
+  - script: yarn run e2e
+    displayName: 'Executar Testes E2E'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publicar Relatório HTML'
+    inputs:
+      PathtoPublish: 'playwright-report'
+      ArtifactName: 'Relatorio-Testes'
